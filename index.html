@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин Telegram</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .product img {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+        }
+        .buy-btn {
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buy-btn:hover {
+            background-color: #006699;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Добро пожаловать в магазин!</h1>
+        <p>Выберите товар и купите его через Telegram.</p>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/50" alt="Товар 1">
+            <span>Товар 1 - 500 ₽</span>
+            <button class="buy-btn" onclick="buyProduct('Товар 1', 500)">Купить</button>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/50" alt="Товар 2">
+            <span>Товар 2 - 750 ₽</span>
+            <button class="buy-btn" onclick="buyProduct('Товар 2', 750)">Купить</button>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/50" alt="Товар 3">
+            <span>Товар 3 - 1200 ₽</span>
+            <button class="buy-btn" onclick="buyProduct('Товар 3', 1200)">Купить</button>
+        </div>
+    </div>
+
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand(); // Расширяет WebApp на весь экран
+
+        function buyProduct(name, price) {
+            let message = `Покупка: ${name} за ${price} ₽`;
+            tg.sendData(message); // Отправка данных боту
+            alert("Данные отправлены боту: " + message);
+        }
+    </script>
+</body>
+</html>
+
+</html>
